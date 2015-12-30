@@ -16,6 +16,7 @@
 		0471CCA71C32ECDB004C9AB5 /* CHIP8EmuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471CCA61C32ECDB004C9AB5 /* CHIP8EmuTests.m */; };
 		0471CCB21C32ECDB004C9AB5 /* CHIP8EmuUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471CCB11C32ECDB004C9AB5 /* CHIP8EmuUITests.m */; };
 		0471CCC21C33832E004C9AB5 /* CHIP8.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471CCC11C33832E004C9AB5 /* CHIP8.m */; };
+		0471CCC81C33C534004C9AB5 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471CCC71C33C534004C9AB5 /* GameView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		0471CCB31C32ECDB004C9AB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0471CCC01C33832E004C9AB5 /* CHIP8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHIP8.h; path = CHIP8/CHIP8.h; sourceTree = "<group>"; };
 		0471CCC11C33832E004C9AB5 /* CHIP8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHIP8.m; path = CHIP8/CHIP8.m; sourceTree = "<group>"; };
+		0471CCC61C33C534004C9AB5 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameView.h; path = CHIP8/GameView.h; sourceTree = "<group>"; };
+		0471CCC71C33C534004C9AB5 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameView.m; path = CHIP8/GameView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 			children = (
 				0471CCC01C33832E004C9AB5 /* CHIP8.h */,
 				0471CCC11C33832E004C9AB5 /* CHIP8.m */,
+				0471CCC61C33C534004C9AB5 /* GameView.h */,
+				0471CCC71C33C534004C9AB5 /* GameView.m */,
 			);
 			name = CHIP8;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0471CC941C32ECDB004C9AB5 /* ViewController.m in Sources */,
+				0471CCC81C33C534004C9AB5 /* GameView.m in Sources */,
 				0471CC911C32ECDB004C9AB5 /* AppDelegate.m in Sources */,
 				0471CCC21C33832E004C9AB5 /* CHIP8.m in Sources */,
 				0471CC8E1C32ECDB004C9AB5 /* main.m in Sources */,
