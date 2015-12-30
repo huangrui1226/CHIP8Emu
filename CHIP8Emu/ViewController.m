@@ -9,39 +9,47 @@
 #import "ViewController.h"
 #import "CHIP8.h"
 #import "GameView.h"
+#import "GameVC.h"
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet GameView *gameView;
-@property (nonatomic, strong) CHIP8 *chip;
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *gameTable;
+@property (nonatomic, strong) NSArray *gameDatas;
 @end
 
 @implementation ViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSData *data = [NSData dataWithContentsOfFile:@"/Users/huangrui/Downloads/c8games/BLINKY"];
-    self.chip = [[CHIP8 alloc] init];
-    self.chip.rom = data;
-    NSTimer *time = [NSTimer scheduledTimerWithTimeInterval:1.0 / 60 target:self selector:@selector(runlo:) userInfo:nil repeats:YES];
-    [time fire];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"GameList" ofType:@"plist"];
+    self.gameDatas = [NSArray arrayWithContentsOfFile:path];
 }
 
-- (void)runlo:(id)sender {
-    [self.chip emulateCycle];
-    if (self.chip.drawFlag) {
-        self.gameView.Pic = [self.chip returnGfx];
-        [self.gameView setNeedsDisplay];
+#pragma mark - UITableView协议方法
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.gameDatas.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseId"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseId"];
     }
+    NSDictionary *dic = [self.gameDatas objectAtIndex:indexPath.row];
+    cell.textLabel.text = [dic objectForKey:@"name"];
+    return cell;
 }
 
-- (IBAction)btnDown:(UIButton *)sender {
-    [self.chip keyDown:sender.tag];
-    NSLog(@"%ld", sender.tag);
-}
-
-- (IBAction)btnUp:(UIButton *)sender {
-    [self.chip keyUp:sender.tag];
-    NSLog(@"%ld", sender.tag);
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *path = [[NSBundle mainBundle] pathForResource:cell.textLabel.text ofType:nil];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    GameVC *game = [[GameVC alloc] init];
+    game.chip.rom = data;
+    [self.navigationController pushViewController:game animated:YES];
 }
 
 @end
