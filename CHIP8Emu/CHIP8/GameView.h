@@ -10,6 +10,6 @@
 
 @interface GameView : UIView
 
-@property (nonatomic, strong) NSArray *Pic;
+@property (nonatomic, strong) NSMutableArray *Pic;
 
 @end

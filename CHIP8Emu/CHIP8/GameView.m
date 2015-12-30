@@ -13,12 +13,22 @@
 
 @implementation GameView
 
+- (NSMutableArray *)Pic {
+    if (!_Pic) {
+        _Pic = [NSMutableArray array];
+    }
+    return _Pic;
+}
+
 - (void)drawRect:(CGRect)rect {
+    UIColor *color = [UIColor redColor];
+    [color set]; //设置线条颜色
     for (NSInteger i = 0; i < 32; i++) {
         for (NSInteger j = 0; j < 64; j++) {
             NSNumber *num = [self.Pic objectAtIndex:(i * 64 + j)];
             if (num.unsignedCharValue != 0) {
                 UIBezierPath *bezi = [UIBezierPath bezierPath];
+                bezi.lineWidth = 3.0;
                 [bezi moveToPoint:CGPointMake(j * cellW, i * cellH)];
                 [bezi addLineToPoint:CGPointMake((j+1) * cellW, i * cellH)];
                 [bezi addLineToPoint:CGPointMake((j+1) * cellW, (i+1) * cellH)];

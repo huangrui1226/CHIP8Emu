@@ -14,4 +14,6 @@
 - (void)emulateCycle;
 - (void)debugRender;
 - (NSMutableArray *)returnGfx;
+- (void)keyDown:(NSInteger)tag;
+- (void)keyUp:(NSInteger)tag;
 @end
