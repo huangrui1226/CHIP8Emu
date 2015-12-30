@@ -9,12 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface CHIP8 : NSObject
-{
-    UInt8 gfx[64 * 32];
-}
 @property (nonatomic, strong) NSData *rom;
-//@property (nonatomic, strong) NSArray *gfx;
 @property (nonatomic, assign) Boolean drawFlag;
 - (void)emulateCycle;
 - (void)debugRender;
+- (NSMutableArray *)returnGfx;
 @end

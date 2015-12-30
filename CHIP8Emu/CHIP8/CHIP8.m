@@ -33,6 +33,7 @@ UInt8 chip8_fontset[80] =
     UInt16 I;
     UInt16 sp;
     UInt16 stack[16];
+    UInt8 gfx[64 * 32];
     UInt8 memory[4096];
     UInt8 V[16];
     UInt8 key[16];
@@ -442,6 +443,15 @@ UInt8 chip8_fontset[80] =
         printf("\n");
     }
     printf("\n");
+}
+
+- (NSMutableArray *)returnGfx {
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSInteger i = 0; i < 2048; i++) {
+        NSNumber *num = [NSNumber numberWithUnsignedChar:gfx[i]];
+        [arr addObject:num];
+    }
+    return arr;
 }
 
 @end
