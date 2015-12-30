@@ -419,15 +419,15 @@ UInt8 chip8_fontset[80] =
     }
     if (delay_timer > 0) {
         delay_timer--;
-//        if (delay_timer == 0) {
-//            delay_timer = 60;
-//        }
+        if (delay_timer == 0) {
+            delay_timer = 60;
+        }
     }
     if (sound_timer > 0) {
         sound_timer--;
-//        if (sound_timer == 0) {
-//            sound_timer = 60;
-//        }
+        if (sound_timer == 0) {
+            sound_timer = 60;
+        }
     }
 }
 
