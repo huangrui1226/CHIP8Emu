@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface CHIP8 : NSObject
 @property (nonatomic, strong) NSData *rom;

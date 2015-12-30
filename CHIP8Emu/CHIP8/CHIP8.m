@@ -7,6 +7,7 @@
 //
 
 #import "CHIP8.h"
+#import "AudioController.h"
 
 UInt8 chip8_fontset[80] =
 {
@@ -27,6 +28,7 @@ UInt8 chip8_fontset[80] =
     0xF0, 0x80, 0xF0, 0x80, 0xF0, //E
     0xF0, 0x80, 0xF0, 0x80, 0x80  //F
 };
+
 @interface CHIP8 () {
     UInt16 pc;
     UInt16 opcode;
@@ -40,6 +42,7 @@ UInt8 chip8_fontset[80] =
     UInt8 delay_timer;
     UInt8 sound_timer;
 }
+@property (strong, nonatomic) AudioController *audioController;
 @end
 
 @implementation CHIP8
@@ -56,6 +59,7 @@ UInt8 chip8_fontset[80] =
 
 - (instancetype)init {
     if (self = [super init]) {
+        self.audioController = [[AudioController alloc] init];
         pc = 0x0200;
         opcode = 0x0000;
         I = 0x0000;
@@ -420,13 +424,12 @@ UInt8 chip8_fontset[80] =
     if (delay_timer > 0) {
         delay_timer--;
         if (delay_timer == 0) {
-            delay_timer = 60;
         }
     }
     if (sound_timer > 0) {
         sound_timer--;
         if (sound_timer == 0) {
-            sound_timer = 60;
+            [self.audioController playSystemSound];
         }
     }
 }

@@ -33,6 +33,9 @@
 		041F0E981C340AC80017B14B /* VERS in Resources */ = {isa = PBXBuildFile; fileRef = 041F0E811C340AC80017B14B /* VERS */; };
 		041F0E991C340AC80017B14B /* WIPEOFF in Resources */ = {isa = PBXBuildFile; fileRef = 041F0E821C340AC80017B14B /* WIPEOFF */; };
 		041F0E9B1C340ADB0017B14B /* GameList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041F0E9A1C340ADB0017B14B /* GameList.plist */; };
+		041F0EA01C341DD20017B14B /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F0E9F1C341DD20017B14B /* AudioController.m */; };
+		041F0EA21C3420350017B14B /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = 041F0EA11C3420350017B14B /* background-music-aac.caf */; };
+		041F0EA41C3423580017B14B /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 041F0EA31C3423580017B14B /* beep.wav */; };
 		0471CC8E1C32ECDB004C9AB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471CC8D1C32ECDB004C9AB5 /* main.m */; };
 		0471CC911C32ECDB004C9AB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471CC901C32ECDB004C9AB5 /* AppDelegate.m */; };
 		0471CC941C32ECDB004C9AB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471CC931C32ECDB004C9AB5 /* ViewController.m */; };
@@ -90,6 +93,10 @@
 		041F0E811C340AC80017B14B /* VERS */ = {isa = PBXFileReference; lastKnownFileType = file; path = VERS; sourceTree = "<group>"; };
 		041F0E821C340AC80017B14B /* WIPEOFF */ = {isa = PBXFileReference; lastKnownFileType = file; path = WIPEOFF; sourceTree = "<group>"; };
 		041F0E9A1C340ADB0017B14B /* GameList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameList.plist; sourceTree = "<group>"; };
+		041F0E9E1C341DD20017B14B /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
+		041F0E9F1C341DD20017B14B /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
+		041F0EA11C3420350017B14B /* background-music-aac.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "background-music-aac.caf"; sourceTree = "<group>"; };
+		041F0EA31C3423580017B14B /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
 		0471CC891C32ECDB004C9AB5 /* CHIP8Emu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHIP8Emu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0471CC8D1C32ECDB004C9AB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0471CC8F1C32ECDB004C9AB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,6 +174,15 @@
 			path = Games;
 			sourceTree = "<group>";
 		};
+		041F0E9C1C341B1C0017B14B /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				041F0EA31C3423580017B14B /* beep.wav */,
+				041F0EA11C3420350017B14B /* background-music-aac.caf */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		0471CC801C32ECDB004C9AB5 = {
 			isa = PBXGroup;
 			children = (
@@ -233,9 +249,12 @@
 		0471CCBF1C338313004C9AB5 /* CHIP8 */ = {
 			isa = PBXGroup;
 			children = (
+				041F0E9C1C341B1C0017B14B /* Sounds */,
 				041F0E0F1C3409C90017B14B /* Games */,
 				0471CCC01C33832E004C9AB5 /* CHIP8.h */,
 				0471CCC11C33832E004C9AB5 /* CHIP8.m */,
+				041F0E9E1C341DD20017B14B /* AudioController.h */,
+				041F0E9F1C341DD20017B14B /* AudioController.m */,
 				0471CCC61C33C534004C9AB5 /* GameView.h */,
 				0471CCC71C33C534004C9AB5 /* GameView.m */,
 				041F0E0A1C3406160017B14B /* GameVC.h */,
@@ -352,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041F0EA41C3423580017B14B /* beep.wav in Resources */,
 				041F0E8F1C340AC80017B14B /* PONG in Resources */,
 				041F0E911C340AC80017B14B /* PUZZLE in Resources */,
 				041F0E8D1C340AC80017B14B /* MERLIN in Resources */,
@@ -362,6 +382,7 @@
 				041F0E921C340AC80017B14B /* SYZYGY in Resources */,
 				0471CC9C1C32ECDB004C9AB5 /* LaunchScreen.storyboard in Resources */,
 				041F0E8C1C340AC80017B14B /* MAZE in Resources */,
+				041F0EA21C3420350017B14B /* background-music-aac.caf in Resources */,
 				041F0E861C340AC80017B14B /* BRIX in Resources */,
 				041F0E851C340AC80017B14B /* BLITZ in Resources */,
 				041F0E841C340AC80017B14B /* BLINKY in Resources */,
@@ -408,6 +429,7 @@
 				0471CC941C32ECDB004C9AB5 /* ViewController.m in Sources */,
 				0471CCC81C33C534004C9AB5 /* GameView.m in Sources */,
 				0471CC911C32ECDB004C9AB5 /* AppDelegate.m in Sources */,
+				041F0EA01C341DD20017B14B /* AudioController.m in Sources */,
 				0471CCC21C33832E004C9AB5 /* CHIP8.m in Sources */,
 				0471CC8E1C32ECDB004C9AB5 /* main.m in Sources */,
 			);
