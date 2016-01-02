@@ -46,10 +46,12 @@
 }
 
 - (IBAction)btnDown:(UIButton *)sender {
+    NSLog(@"%ld", sender.tag);
     [self.chip keyDown:sender.tag];
 }
 
 - (IBAction)btnUp:(UIButton *)sender {
+    NSLog(@"%ld", sender.tag);
     [self.chip keyUp:sender.tag];
 }
 

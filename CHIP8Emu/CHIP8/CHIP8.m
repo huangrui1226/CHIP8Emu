@@ -85,13 +85,6 @@ UInt8 chip8_fontset[80] =
             memory[i] = chip8_fontset[i];
         }
         self.drawFlag = true;
-        //读取ROM
-        NSUInteger len = [self.rom length];
-        Byte *byte = (Byte*)malloc(len);
-        memcpy(byte, [self.rom bytes], len);
-        for (NSInteger i = 0; i < self.rom.length; i++) {
-            memory[i + 512] = byte[i];
-        }
     }
     return self;
 }
